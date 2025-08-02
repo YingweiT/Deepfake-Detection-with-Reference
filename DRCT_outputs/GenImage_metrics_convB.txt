@@ -1,0 +1,16 @@
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_sd_14
+acc:0.9988, auc:1.0000, recall:1.0000, precision:0.9977, f1:0.9988, fnr: 0.0
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_sd_15
+acc:0.9982, auc:0.9998, recall:0.9989, precision:0.9976, f1:0.9983, fnr: 0.001125
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_midj
+acc:0.9463, auc:0.9966, recall:0.8947, precision:0.9976, f1:0.9433, fnr: 0.10533333333333333
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_adm
+acc:0.6178, auc:0.9340, recall:0.2380, precision:0.9903, f1:0.3838, fnr: 0.762
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_wukong
+acc:0.9991, auc:1.0000, recall:0.9998, precision:0.9983, f1:0.9991, fnr: 0.00016666666666666666
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_glide
+acc:0.6592, auc:0.9744, recall:0.3213, precision:0.9908, f1:0.4853, fnr: 0.6786666666666666
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_vqdm
+acc:0.7488, auc:0.9636, recall:0.4997, precision:0.9960, f1:0.6655, fnr: 0.5003333333333333
+model_path:./pretrained/GenImage/sdv14/convnext_base_in22k_224_drct_amp_crop/last_acc0.9991.pth, post_aug_mode:None, class_name:imagenet_bgan
+acc:0.5981, auc:0.9848, recall:0.1980, precision:0.9908, f1:0.3300, fnr: 0.802
