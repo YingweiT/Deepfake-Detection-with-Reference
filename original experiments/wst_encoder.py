@@ -110,6 +110,7 @@ def wst(input_dir, transform, collate_fn, save_path, J=3, batch_size=64):
     input_dir = Path(input_dir)
     output_path = Path(save_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_size = (2, 2) if J == 3 else (4, 4)
 
     scattering = Scattering2D(J=J, shape=target_size).to(device)
     image_paths = list(input_dir.glob("*"))
@@ -123,7 +124,7 @@ def wst(input_dir, transform, collate_fn, save_path, J=3, batch_size=64):
             batch_images = batch_images.to(device)  # shape: [batch_size, 1, H, W]
             coeffs = scattering(batch_images)  # [batch_size, C, C', H', W']
             coeffs = coeffs.squeeze(1)
-            pooled = torch.nn.functional.adaptive_avg_pool2d(coeffs, output_size=(2, 2))
+            pooled = torch.nn.functional.adaptive_avg_pool2d(coeffs, output_size=output_size)
             pooled_flattened = pooled.view(pooled.size(0), -1)
             all_features.append(pooled_flattened.cpu())
             all_paths.extend(batch_paths)
