@@ -19,15 +19,15 @@ def wst_m(x, projector, flatten=True):
 
 
 def compute_fixed_pca(tensor, n_components=48):
-    # 输入: wst_tensor shape: (B, C=81, H, W)
+    # Input: wst_tensor shape: (B, C=81, H, W)
     B, C, H, W = tensor.shape
     X = tensor.permute(0, 2, 3, 1).reshape(-1, C)  # shape: (B*H*W, C)
 
-    # 中心化
+    # Centralization
     X_mean = X.mean(dim=0, keepdim=True)
     X_centered = X - X_mean
 
-    # SVD（或可用 torch.pca_lowrank）
+    # SVD (or use torch.pca_lowrank)
     U, S, Vh = torch.linalg.svd(X_centered, full_matrices=False)
     Vh_reduced = Vh[:n_components]  # shape: (D, C)
 
@@ -79,14 +79,14 @@ def reshape_to_3(x_reduced):
 
 def prepare_for_clip_batch(wst_tensor: torch.Tensor) -> torch.Tensor:
 
-    # Step 1: Resize 到 (B, 3, 224, 224)
+    # Step 1: Resize to (B, 3, 224, 224)
     resized = F.interpolate(wst_tensor, size=224, mode="bicubic", align_corners=False)
 
-    # Step 2: Normalize（使用 broadcast 实现 batch normalize）
+    # Step 2: Normalize (Use broadcast to realize batch normalize)
     mean = torch.tensor([0.48145466, 0.4578275, 0.40821073], device=wst_tensor.device).view(1, 3, 1, 1)
     std = torch.tensor([0.26862954, 0.26130258, 0.27577711], device=wst_tensor.device).view(1, 3, 1, 1)
 
-    normalized = (resized - mean) / std  # 自动 broadcast 到 batch
+    normalized = (resized - mean) / std  # automatically broadcast to batch
     return normalized
 
 
